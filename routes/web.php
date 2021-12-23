@@ -17,6 +17,7 @@ use App\Http\Controllers\EmploymentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CheckoutController;
 
 
 
@@ -31,8 +32,12 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
+Route::get('/checkout/{id}txn{amount}', [CheckoutController::class, 'checkout'])->name('checkout.new');
+Route::post('/checkout/', [CheckoutController::class, 'afterpayment'])->name('checkout.credit-card');
+
+
+// Route::get('/pay', function () {
+//     return view('order.payment');
 // });
 
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');

@@ -105,7 +105,7 @@
                                                                 @endif
                                                             @endforeach
                                                             @if ($h == 0)
-                                                                <a href="{{ route('order.create', ['id' => $option->id]) }}"
+                                                                <a href="{{ route('checkout.new', ['id' => $option->id, 'amount' => $option->price]) }}"
                                                                     class="btn btn-primary">Buy Now</a>
                                                             @endif
                                                         @endif
