@@ -32,8 +32,8 @@ use App\Http\Controllers\CheckoutController;
 |
 */
 
-Route::get('/checkout/{id}txn{amount}', [CheckoutController::class, 'checkout'])->name('checkout.new');
-Route::post('/checkout/', [CheckoutController::class, 'afterpayment'])->name('checkout.credit-card');
+Route::middleware(['auth:sanctum', 'verified'])->get('/checkout/{id}txn{amount}', [CheckoutController::class, 'checkout'])->name('checkout.new');
+Route::middleware(['auth:sanctum', 'verified'])->post('/checkout/', [CheckoutController::class, 'afterpayment'])->name('checkout.credit-card');
 
 
 // Route::get('/pay', function () {
