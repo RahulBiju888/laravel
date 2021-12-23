@@ -33,7 +33,8 @@
                                 @endforeach
                             </select>
                             <h6 class="font-weight-bold pt-4 pb-1">Select Gig Sub Category:</h6>
-                            <select name="sub_category_id" id="inputGroupSelect" class="w-100">
+                            <select name="sub_category_id" id="inputGroupSelect" class="w-100 ignore select2 form-control"
+                                style="height: 15px">
                                 <option selected="true" disabled="disabled">Select category</option>
                                 @foreach ($sub_category as $sub_category)
                                     <option value="{{ $sub_category->id }}">{{ $sub_category->name }}</option>
@@ -46,5 +47,12 @@
             </form>
         </div>
     </section>
+
+    <script>
+        $(document).ready(function() {
+            $('select:not(.ignore)').niceSelect();
+            FastClick.attach(document.body);
+        });
+    </script>
 
 @endsection

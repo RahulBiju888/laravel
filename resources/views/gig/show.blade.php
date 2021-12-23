@@ -15,11 +15,13 @@
                         <div class="product-meta">
                             <ul class="list-inline">
                                 <li class="list-inline-item"><i class="fa fa-user-o"></i> By <a
-                                        href="">{{ $gig->freelancer->user->name }}</a></li>
+                                        href="{{ route('user.show', ['id' => $gig->freelancer->user->id]) }}">{{ $gig->freelancer->user->name }}</a>
+                                </li>
                                 <li class="list-inline-item"><i class="fa fa-folder-open-o"></i> Category<a
                                         href="#">{{ $gig->category->name }} </a>/ <a href="#">
                                         {{ $gig->sub_category->name }}</a></li>
-                                <li class="list-inline-item"><i class="fa fa-calendar"></i>{{ $gig->created_at }}</li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-calendar"></i>{{ $gig->created_at->format('jS F Y') }}</li>
                             </ul>
                         </div>
 
